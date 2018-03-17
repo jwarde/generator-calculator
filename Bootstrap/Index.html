@@ -1,0 +1,808 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui.js"></script>
+    <script src="../Scripts/CalcGenEngine1.js" type="text/javascript"></script>
+    <style>
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        .hiddenCol {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Generator Calc</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home - Bootstrap</a></li>
+                    <li><a href="#">Desktop - Standard CSS</a></li>
+                    <li><a href="#">Mobile - jQuery Mobile</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-2 well">
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#32Accom">32ft Welfare</a></li>
+                    <li><a href="#24Accom">24ft Welfare</a></li>
+                    <li><a href="#Store">Store</a></li>
+                    <li><a href="#Toilet">Toilet</a></li>
+                    <li><a href="#Misc">Misc</a></li>
+                </ul>
+
+
+            </div>
+            <div class="col-sm-8">
+
+                
+
+                <div id="32Accom" class="row">
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h4>Welfare</h4>
+                            <p>32ft</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="well table-responsive" >
+                            <p>
+                                Enter the Quantity of Each Accommodation Unit Below To Calculate the kVA and the
+                                Nearest Size Generator
+                            </p>
+                            <p class="text-danger">Plug in Facility or Hardwired; connections are blue 240V, 32A</p>
+                            <table class="table table-hover table-condensed table-striped text-primary">
+                                <tr>
+                                    <td class="style2">
+                                        &nbsp;
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        <h3><b>Plug in Facility or Hardwired</b></h3>
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <b>kVA (1 Unit ONLY per generator)</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS at 240V</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS over 415V</b>
+                                    </td>
+                                    <td>
+                                        <strong>Qty</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">
+                                        Open Plan Office
+                                    </td>
+                                    <td class="style6 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style7 hiddenCol">
+                                        <input class="kva" id="TxtKVA1" type="text" value="5" />
+                                    </td>
+                                    <td id="KVA1AMP240" class="style8 hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA1AMP415" class="style8 hiddenCol">&nbsp;</td>
+                                    <td class="style8">
+
+                                        <input class="qty" id="TxtQty1" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style9">
+                                        Split Office
+                                    </td>
+                                    <td class="style10 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style11 hiddenCol">
+                                        <input class="kva" id="TxtKVA2" type="text" value="5.5" />
+                                    </td>
+                                    <td id="KVA2AMP240" class="style12 hiddenCol">&nbsp;</td>
+                                    <td id="KVA2AMP415" class="style12 hiddenCol">&nbsp;</td>
+                                    <td class="style12">
+                                        <input class="qty" id="TxtQty2" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style9">
+                                        Meeting Room + Kitchenette
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA3" type="text" value="7" />
+                                    </td>
+                                    <td id="KVA3AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA3AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty3" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        Split Office/Meeting + Kitchenette.
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva hiddenCol" id="TxtKVA4" type="text" value="7" />
+                                    </td>
+                                    <td id="KVA4AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA4AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty4" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        Drying Room
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva hiddenCol" id="TxtKVA5" type="text" value="5.5" />
+                                    </td>
+                                    <td id="KVA5AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA5AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty5" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        Mess Room
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva" id="TxtKVA6" type="text" value="7" />
+                                    </td>
+                                    <td id="KVA6AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA6AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty6" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        &nbsp;Split Mess/2+1 Toilet (Heart unit)
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva hiddenCol" id="TxtKVA7" type="text" value="6.5" />
+                                    </td>
+                                    <td id="KVA7AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA7AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty7" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        32ft AV - 60/40 Mess/Dry
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva hiddenCol" id="TxtKVA8" type="text" value="6.5" />
+                                    </td>
+                                    <td id="KVA8AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA8AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty8" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style2">
+                                        &nbsp;70/30 Split Shower/Changing
+                                    </td>
+                                    <td class="style3 hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="style4 hiddenCol">
+                                        <input class="kva hiddenCol" id="TxtKVA9" type="text" value="7" />
+                                    </td>
+                                    <td id="KVA9AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA9AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty9" type="text" value="0" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="24Accom" class="row">
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h4>Welfare</h4>
+                            <p>24ft</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="well table-responsive">
+                            <p>
+                                Enter the Quantity of Each Accommodation Unit Below To Calculate the kVA and the
+                                Nearest Size Generator
+                            </p>
+                            <p class="text-danger">Plug in Facility or Hardwired; connections are blue 240V, 32A</p>
+
+                            <table class="table table-hover table-condensed table-striped text-primary">
+                                <tr>
+                                    <td class="">
+                                        &nbsp;
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <h3><b>Plug in Facility or Hardwired</b></h3>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>kVA (1 Unit ONLY per generator)</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS at 240V</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS over 415V</b>
+                                    </td>
+                                    <td>
+                                        <strong>Qty</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft,21ft,16ft,12ft AV - Open Plan Office
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA10" type="text" value="5" />
+                                    </td>
+                                    <td id="KVA10AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA10AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty10" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft,21ft,16ft,12ft AV - Meeting Room
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA11" type="text" value="5" />
+                                    </td>
+                                    <td id="KVA11AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA11AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty11" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft,21ft,16ft AV - Mess Room
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA12" type="text" value="6.5" />
+                                    </td>
+                                    <td id="KVA12AMP240"class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA12AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty12" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft,21ft,16ft,12ft AV - Drying Room
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA13" type="text" value="5" />
+                                    </td>
+                                    <td id="KVA13AMP240" class="hiddenCol"></td>
+                                    <td id="KVA13AMP415" class="hiddenCol"></td>
+                                    <td class="style12">
+                                        <input class="qty" id="TxtQty13" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft,21ft, AV - 60/40 Office/Meeting + Kitchenette
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA14" type="text" value="6.5" />
+                                    </td>
+                                    <td id="KVA14AMP240"class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA14AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty14" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft AV - 50/50 Office/Store
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA15" type="text" value="4.5" />
+                                    </td>
+                                    <td id="KVA15AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA15AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty15" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        24ft AV - 2+1 Toilet/Mess +Optional Shower
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA16" type="text" value="7.5" />
+                                    </td>
+                                    <td id="KVA16AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA16AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty16" type="text" value="0" />
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="Store"class="row">
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h4>Store</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="well table-responsive">
+                            <p>
+                                Enter the Quantity of Each Accommodation Unit Below To Calculate the kVA and the
+                                Nearest Size Generator
+                            </p>
+                            <p class="text-danger">Plug in Facility or Hardwired; connections are blue 240V, 32A</p>
+
+                            <table class="table table-hover table-condensed table-striped text-primary">
+                                <tr>
+                                    <td class="">
+                                        &nbsp;
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <h3><b>Plug in Facility or Hardwired</b></h3>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>kVA (1 Unit ONLY per generator)</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS at 240V</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS over 415V</b>
+                                    </td>
+                                    <td>
+                                        <strong>Qty</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        12ft - Store
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A*
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA17" type="text" value="3" />
+                                    </td>
+                                    <td id="KVA17AMP240"class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA17AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty17" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        21ft - Store
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A*
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA18" type="text" value="3.5" />
+                                    </td>
+                                    <td id="KVA18AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA18AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty18" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        32ft - Store
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA19" type="text" value="4" />
+                                    </td>
+                                    <td id="KVA19AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA19AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty19" type="text" value="0" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Toilet" class="row">
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h4>Toilet</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="well table-responsive">
+                            <p>
+                                Enter the Quantity of Each Accommodation Unit Below To Calculate the kVA and the
+                                Nearest Size Generator
+                            </p>
+                            <p class="text-danger">Plug in Facility or Hardwired; connections are blue 240V, 32A</p>
+
+                            <table class="table table-hover table-condensed table-striped text-primary">
+                                <tr>
+                                    <td class="">
+                                        &nbsp;
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <h3><b>Plug in Facility or Hardwired</b></h3>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>kVA (1 Unit ONLY per generator)</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS at 240V</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS over 415V</b>
+                                    </td>
+                                    <td>
+                                        <strong>Qty</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        Toilets - 2+1
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA20" type="text" value="4" />
+                                    </td>
+                                    <td id="KVA20AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA20AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty20" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        Toilets - 3+1
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA21" type="text" value="5" />
+                                    </td>
+                                    <td id="KVA21AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA21AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty21" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        Toilets - 6+1
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA22" type="text" value="6" />
+                                    </td>
+                                    <td id="KVA22AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA22AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty22" type="text" value="0" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Misc" class="row">
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h4>Misc</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="well table-responsive">
+                            <p>
+                                Enter the Quantity of Each Accommodation Unit Below To Calculate the kVA and the
+                                Nearest Size Generator
+                            </p>
+                            <p class="text-danger">Plug in Facility or Hardwired; connections are blue 240V, 32A</p>
+
+                            <table class="table table-hover table-condensed table-striped text-primary">
+                                <tr>
+                                    <td class="">
+                                        &nbsp;
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <h3><b>Plug in Facility or Hardwired</b></h3>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>kVA (1 Unit ONLY per generator)</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS at 240V</b>
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <b>AMPS over 415V</b>
+                                    </td>
+                                    <td>
+                                        <strong>Qty</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        Security - 12ft office
+                                    </td>
+                                    <td class="hiddenCol">
+                                        Blue 240V, 32A*
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA23" type="text" value="3.5" />
+                                    </td>
+                                    <td id="KVA23AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA23AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty23" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        All Accommodation Units without plug in supply
+                                    </td>
+                                    <td class="hiddenCol">
+                                        240V, 63A Isolator only
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA24" type="text" value="10" />
+                                    </td>
+                                    <td id="KVA24AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA24AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty24" type="text" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        6 Bay Shower Unit
+                                    </td>
+                                    <td class="hiddenCol">
+                                        2 x 32A Red 415V
+                                    </td>
+                                    <td class="hiddenCol">
+                                        <input class="kva" id="TxtKVA25" type="text" value="40" />
+                                    </td>
+                                    <td id="KVA25AMP240" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td id="KVA25AMP415" class="hiddenCol">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input class="qty" id="TxtQty25" type="text" value="0" />
+                                    </td>
+
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Disc"class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default text-left">
+                            <div class="panel-body">
+
+                                <p>
+                                    The information contained in this website is for general information purposes only.
+                                    The information that is provided I make no representations or warranties
+                                    of any kind, express or implied, about the completeness, accuracy, reliability,
+                                    suitability or availability with respect to the website or the information,
+                                    products, services, or related graphics contained on the website for any purpose.
+                                    Any reliance you place on such information is therefore strictly at your own risk.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 well">
+
+                <div class="storeHeader text-danger"><h2>Generator Required</h2></div>
+
+                <p>
+                    Accommodation Units : <kbd><span id="TotalAccomodationUnitsReq"></span></kbd><br />
+
+                    AMPS :<kbd><span id="AMPS"></span></kbd><br />
+
+                    Total Amps > 415V : <kbd><span id="TotalAMPSOver415"></span></kbd><br />
+
+                    Total kVA > 415V (3 phases) : <kbd><span id="TotalKVAOver415"></span></kbd><br />
+
+                    Generator Size : <kbd><span id="GenSizeReq"></span></kbd><br />
+
+                    Req sockets of 32A 240V : <kbd><span id="32V240VSocketsReq"></span></kbd><br />
+
+                    Hardwire Conn, no plugs req : <kbd><span id="HardwareConnectionsReq"></span></kbd>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p><a href="">Home - Bootstrap</a>  |  <a href="">Desktop - Standard CSS</a>  |  <a href="">Mobile - jQuery Mobile</a></p>
+    </footer>
+
+</body>
+</html>

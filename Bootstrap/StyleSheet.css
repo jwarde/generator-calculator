@@ -1,0 +1,43 @@
+﻿body {
+    background-color: #d0e4fe;
+}
+
+#Header
+{
+    display:block;
+    min-height:120px;
+    height:120px;
+    background-color:#cc0000;
+    width:100%;
+    position:fixed;
+    top:0px;
+}
+ 
+#Container 
+{
+  margin: auto;
+  background-color:#cc0000;
+  width:1000px;
+  padding:100px;
+
+ /* position: absolute;*/
+ /*position: relative;*/
+ 
+}
+ 
+#Container div 
+{
+    /*position: relative;*/
+    /*position: absolute;*/
+  /*float:left;*/
+  padding:30px;
+  background-color:white;
+  margin-bottom:50px; 
+ 
+}
+
+#Footer p
+{
+    text-align: center; 
+}
+ 

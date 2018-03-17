@@ -1,0 +1,1279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui.js"></script>
+    <script src="../Scripts/CalcGenEngine1.js" type="text/javascript"></script>
+
+    <title>Generator Calculator</title>
+    <style>
+
+        #ContentDivMain {
+            background-color:#dedede !important;
+            background-image: url('Images/electrical-station-1-1556945-639x482.jpg') !important;
+            background-repeat:no-repeat !important;
+            padding:10px;
+            border:5px !important;
+            border-color:white !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+                    #ContentDivMain {
+                        background-color:#dedede !important;
+                        background-image: url('Images/electrical-station-1-1556945-639x482.jpg') !important; 
+                        background-repeat:no-repeat !important;
+                        padding:10px;
+                        border:5px !important;
+                        border-color:white !important;
+                    }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            #ContentDivMain {
+                background-color: #dedede !important;
+                background-image: url('Images/electrical-station-1-1556945-1278x965.jpg') !important;
+                background-repeat: no-repeat !important;
+                padding: 10px;
+                border: 5px !important;
+                border-color: white !important;
+            }
+        }
+
+        @media only screen and (max-width: 2400px) {
+            #ContentDivMain {
+                background-color: #dedede !important;
+                background-image: url('Images/electrical-station-1-1556945-1599x1207.jpg') !important;
+                background-repeat: no-repeat !important;
+                padding: 10px;
+                border: 5px !important;
+                border-color: white !important;
+            }
+        }
+
+
+
+        
+
+        .white {
+            color:white;
+        }
+
+        .headerStyle, .disclaimer {
+            color:white;
+            padding:20px;
+        }
+
+        .headerStyle {
+            padding:5px;
+            text-align: center;
+            background-color:#cc0000 !important;
+        }
+
+        .disclaimer{
+            padding:20px;
+            background-color:#cc0000 !important;
+        }
+
+        #pageStyle{
+            /*background-color:#f1a899 !important;*/
+            background-color:#dedede !important;
+        }
+
+        li a {
+            color:#cc0000 !important;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color:red;
+            color:white;
+        }
+
+        td {
+            color:blue;
+        }
+
+        h3 {
+            color:red;
+            padding:0px;
+        }
+
+        tr:hover {background-color: #f5f5f5;} 
+
+        tr:nth-child(even) {background-color: #f2f2f2;} 
+
+        #CartDetails {
+	        border-radius: 25px;
+	        /*background: white !important;*/
+	        background-color: white !important;
+            color: red !important;
+	        margin-top:50px !important;
+	        margin-bottom:50px !important;
+	        padding-top:20px !important;
+	        padding-bottom:20px !important;
+	        padding-left:50px !important;
+	        padding-right:50px !important;
+	
+	        border-color:red !important;
+	        border: 20px solid red!important;
+	        background-image: url("img/1.jpg") !important;
+	
+	
+        }
+
+            #CartDetails p {
+                color:black;
+            }
+
+
+    </style>
+</head>
+<body>
+
+<div id="pageStyle" data-role="page">
+  <div data-role="header" >
+   <div class="headerStyle"><h2>Generator Calculator</h2></div>
+    
+    <div data-role="navbar" >
+      <ul >
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Bootstrap</a></li>
+        <li><a href="#CartpageStyle" data-transition="flip">Cart</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    
+    <div id="ContentDivMain" data-role="main" class="ui-content">
+    <p class="white">Add <strong>all</strong> items you need to power.</p>
+
+    <ul data-role="listview" data-inset="true">    
+      <li><a href="#32ftpageStyle" data-transition="flip">32ft AV - Office / Kitchenette / Mess</a></li>
+      <li><a href="#24ftpageStyle" data-transition="flip">24ft AV - Office / Kitchenette / Mess</a></li>
+      <li><a href="#StorepageStyle" data-transition="flip">Store</a></li>
+      <li><a href="#ToiletpageStyle" data-transition="flip">Toilet</a></li>
+      <li><a href="#MiscpageStyle" data-transition="flip">Misc</a></li>
+    </ul>
+        
+        <span id="OverviewResults"></span>
+        <input type="submit" class="ui-btn ui-corner-all ui-shadow" value="Calculate" onclick="calcProjection()"><br>
+
+  </div>
+
+      <div class="disclaimer">
+          <p class="white">
+              The information contained in this website is for general information purposes only.
+              The information that is provided I make no representations or warranties
+              of any kind, express or implied, about the completeness, accuracy, reliability,
+              suitability or availability with respect to the website or the information,
+              products, services, or related graphics contained on the website for any purpose.
+              Any reliance you place on such information is therefore strictly at your own risk.
+
+          </p>
+      </div>
+
+    
+  <div data-role="popup" id="myPopup">
+      <p>This is a simple popup.</p>
+    </div>
+  </div>
+
+  <div data-role="footer">
+    <div data-role="footer" style="text-align:center;">
+        
+        <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+        <h3>Copyright 2018 John Warde</h3>
+    </div>
+  </div>
+</div> 
+
+
+    <div id="32ftpageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h2>Generator Calculator</h2>
+            <p>Add the items you need to power.</p>
+            
+            <div data-role="collapsibleset">
+                <div data-role="collapsible">
+                    <h1>Open Plan Office</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty1">Enter Amount</label>
+                    <input name="TxtQty1" id="TxtQty1" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Split Office</h1>
+                    <h3>Amount To Save / Invest</h3>
+                    <label for="TxtQty2">Enter Amount</label>
+                    <input name="TxtQty2" id="TxtQty2" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Meeting Room + Kitchenette</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty3">Enter Amount</label>
+                    <input name="TxtQty3" id="TxtQty3" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Split Office/Meeting + Kitchenette</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty4">Enter Amount</label>
+                    <input name="TxtQty4" id="TxtQty4" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Drying Room</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty5">Enter Amount</label>
+                    <input name="TxtQty5" id="TxtQty5" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Mess Room</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty6">Enter Amount</label>
+                    <input name="TxtQty6" id="TxtQty6" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Split Mess/2+1 Toilet (Heart unit)</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty7">Enter Amount</label>
+                    <input name="TxtQty7" id="TxtQty7" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>32ft AV - 60/40 Mess/Dry</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty8">Enter Amount</label>
+                    <input name="TxtQty8" id="TxtQty8" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>70/30 Split Shower/Changing</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty9">Enter Amount</label>
+                    <input name="TxtQty9" id="TxtQty9" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div> 
+
+
+    <div id="24ftpageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <h2>Generator Calculator</h2>
+            <p>Add the items you need to power.</p>
+            
+            <div data-role="collapsibleset">
+                <div data-role="collapsible">
+                    <h1>24ft,21ft,16ft,12ft AV - Open Plan Office</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty10">Enter Amount</label>
+                    <input name="TxtQty10" id="TxtQty10" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft,21ft,16ft,12ft AV - Meeting Room</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty11">Enter Amount</label>
+                    <input name="TxtQty11" id="TxtQty11" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft,21ft,16ft AV - Mess Room</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty12">Enter Amount</label>
+                    <input name="TxtQty12" id="TxtQty12" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft,21ft,16ft,12ft AV - Drying Room</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty13">Enter Amount</label>
+                    <input name="TxtQty13" id="TxtQty13" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft,21ft, AV - 60/40 Office/Meeting + Kitchenette</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty14">Enter Amount</label>
+                    <input name="TxtQty14" id="TxtQty14" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft AV - 50/50 Office/Store</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty15">Enter Amount</label>
+                    <input name="TxtQty15" id="TxtQty15" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+                <div data-role="collapsible">
+                    <h1>24ft AV - 2+1 Toilet/Mess + Optional Shower</h1>
+                    <h3>Amount</h3>
+                    <label for="TxtQty16">Enter Amount</label>
+                    <input name="TxtQty16" id="TxtQty16" />
+                    <a href="#pageStyle" class="ui-btn">Submit</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div> 
+
+    <div id="StorepageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div data-role="main" class="ui-content">
+                <h2>Generator Calculator</h2>
+                <p>Add the items you need to power.</p>
+                
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible">
+                        <h1>12ft - Store</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty17">Enter Amount</label>
+                        <input name="TxtQty17" id="TxtQty17" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>21ft - Store</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty18">Enter Amount</label>
+                        <input name="TxtQty18" id="TxtQty18" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>32ft - Store</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty19">Enter Amount</label>
+                        <input name="TxtQty19" id="TxtQty19" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div> 
+
+    <div id="ToiletpageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div data-role="main" class="ui-content">
+                <h2>Generator Calculator</h2>
+                <p>Add the items you need to power.</p>
+                
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible">
+                        <h1>Toilets - 2+1</h1>
+                        <h3>Amount To Save / Invest</h3>
+                        <label for="TxtQty20">Enter Amount</label>
+                        <input name="TxtQty20" id="TxtQty20" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>Toilets - 3+1</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty21">Enter Amount</label>
+                        <input name="TxtQty21" id="TxtQty21" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>Toilets - 6+1</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty22">Enter Amount</label>
+                        <input name="TxtQty22" id="TxtQty22" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div> 
+
+    <div id="MiscpageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div data-role="main" class="ui-content">
+                <h2>Generator Calculator</h2>
+                <p>Add the items you need to power.</p>
+                
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible">
+                        <h1>Security - 12ft office</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty23">Enter Amount</label>
+                        <input name="TxtQty23" id="TxtQty23" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>All Accommodation Units without plug in supply</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty24">Enter Amount</label>
+                        <input name="TxtQty24" id="TxtQty24" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+                    <div data-role="collapsible">
+                        <h1>6 Bay Shower Unit</h1>
+                        <h3>Amount</h3>
+                        <label for="TxtQty25">Enter Amount</label>
+                        <input name="TxtQty25" id="TxtQty25" />
+                        <a href="#pageStyle" class="ui-btn">Submit</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div> 
+
+    <div id="CartpageStyle" data-role="page">
+        <div data-role="header">
+            <div class="headerStyle"><h2>Generator Calculator</h2></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#" data-transition="flip">Standard</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div data-role="main" class="ui-content">
+                
+                <div id="CartDetails" class="paddingBottom">
+                    <div class="storeHeader"><h2>Generator Required</h2></div>
+
+                    <p>
+                        Accommodation Units : <span id="TotalAccomodationUnitsReq"></span><br />
+
+                        AMPS :<span id="AMPS"></span><br />
+
+                        Total Amps > 415V : <span id="TotalAMPSOver415"></span><br />
+
+                        Total kVA > 415V (3 phases) : <span id="TotalKVAOver415"></span><br />
+
+                        Generator Size : <span id="GenSizeReq"></span><br />
+
+                        Req sockets of 32A 240V : <span id="32V240VSocketsReq"></span><br />
+
+                        Hardwire Conn, no plugs req : <span id="HardwareConnectionsReq"></span>
+                    </p>
+                </div>
+                
+                <div data-role="collapsible">
+                    <h1>Table Data</h1>
+                    <h3>32ft Accommodation</h3>
+                    <table id="32fttable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+                        <thead>
+                            <tr>
+                                <th class="style2">
+                                    <b>Type</b>
+                                </th>
+                                <th data-priority="1" class="style3 hiddenCol">
+                                    <b>Plug-in or Hardwired</b>
+                                </th>
+                                <th data-priority="2" class="style4 hiddenCol">
+                                    <b>kVA</b>
+                                </th>
+                                <th data-priority="3" class="hiddenCol">
+                                    <b>AMPS at 240V</b>
+                                </th>
+                                <th data-priority="4" class="hiddenCol">
+                                    <b>AMPS over 415V</b>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="style5">
+                                    Open Plan Office
+                                </td>
+                                <td class="style6 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style7 hiddenCol">
+                                    <input class="kva" id="TxtKVA1" type="text" value="5" />
+                                </td>
+                                <td id="KVA1AMP240" class="style8 hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA1AMP415" class="style8 hiddenCol">&nbsp;</td>
+                                <td class="style8">
+
+                                    <input class="qty" id="TxtQty1" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style9">
+                                    Split Office
+                                </td>
+                                <td class="style10 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style11 hiddenCol">
+                                    <input class="kva" id="TxtKVA2" type="text" value="5.5" />
+                                </td>
+                                <td id="KVA2AMP240" class="style12 hiddenCol">&nbsp;</td>
+                                <td id="KVA2AMP415" class="style12 hiddenCol">&nbsp;</td>
+                                <td class="style12">
+                                    <input class="qty" id="TxtQty2" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style9">
+                                    Meeting Room + Kitchenette
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA3" type="text" value="7" />
+                                </td>
+                                <td id="KVA3AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA3AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty3" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    Split Office/Meeting + Kitchenette.
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva hiddenCol" id="TxtKVA4" type="text" value="7" />
+                                </td>
+                                <td id="KVA4AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA4AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty4" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    Drying Room
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva hiddenCol" id="TxtKVA5" type="text" value="5.5" />
+                                </td>
+                                <td id="KVA5AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA5AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty5" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    Mess Room
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva" id="TxtKVA6" type="text" value="7" />
+                                </td>
+                                <td id="KVA6AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA6AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty6" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    &nbsp;Split Mess/2+1 Toilet (Heart unit)
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva hiddenCol" id="TxtKVA7" type="text" value="6.5" />
+                                </td>
+                                <td id="KVA7AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA7AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty7" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    32ft AV - 60/40 Mess/Dry
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva hiddenCol" id="TxtKVA8" type="text" value="6.5" />
+                                </td>
+                                <td id="KVA8AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA8AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty8" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    &nbsp;70/30 Split Shower/Changing
+                                </td>
+                                <td class="style3 hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="style4 hiddenCol">
+                                    <input class="kva hiddenCol" id="TxtKVA9" type="text" value="7" />
+                                </td>
+                                <td id="KVA9AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA9AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty9" type="text" value="0" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>24ft Accommodation</h3>
+                    <table id="24fttable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+                        <thead>
+                            <tr>
+                                <th class="style2">
+                                    <b>Type</b>
+                                </th>
+                                <th data-priority="1" class="style3 hiddenCol">
+                                    <b>Plug-in or Hardwired</b>
+                                </th>
+                                <th data-priority="2" class="style4 hiddenCol">
+                                    <b>kVA</b>
+                                </th>
+                                <th data-priority="3" class="hiddenCol">
+                                    <b>AMPS at 240V</b>
+                                </th>
+                                <th data-priority="4" class="hiddenCol">
+                                    <b>AMPS over 415V</b>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="">
+                                    24ft,21ft,16ft,12ft AV - Open Plan Office
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA10" type="text" value="5" />
+                                </td>
+                                <td id="KVA10AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA10AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty10" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft,21ft,16ft,12ft AV - Meeting Room
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA11" type="text" value="5" />
+                                </td>
+                                <td id="KVA11AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA11AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty11" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft,21ft,16ft AV - Mess Room
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA12" type="text" value="6.5" />
+                                </td>
+                                <td id="KVA12AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA12AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty12" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft,21ft,16ft,12ft AV - Drying Room
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA13" type="text" value="5" />
+                                </td>
+                                <td id="KVA13AMP240" class="hiddenCol"></td>
+                                <td id="KVA13AMP415" class="hiddenCol"></td>
+                                <td class="style12">
+                                    <input class="qty" id="TxtQty13" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft,21ft, AV - 60/40 Office/Meeting + Kitchenette
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA14" type="text" value="6.5" />
+                                </td>
+                                <td id="KVA14AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA14AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty14" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft AV - 50/50 Office/Store
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA15" type="text" value="4.5" />
+                                </td>
+                                <td id="KVA15AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA15AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty15" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    24ft AV - 2+1 Toilet/Mess +Optional Shower
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA16" type="text" value="7.5" />
+                                </td>
+                                <td id="KVA16AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA16AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty16" type="text" value="0" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Storage Unit</h3>
+                    <table id="storetable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+                        <thead>
+                            <tr>
+                                <th class="style2">
+                                    <b>Type</b>
+                                </th>
+                                <th data-priority="1" class="style3 hiddenCol">
+                                    <b>Plug-in or Hardwired</b>
+                                </th>
+                                <th data-priority="2" class="style4 hiddenCol">
+                                    <b>kVA</b>
+                                </th>
+                                <th data-priority="3" class="hiddenCol">
+                                    <b>AMPS at 240V</b>
+                                </th>
+                                <th data-priority="4" class="hiddenCol">
+                                    <b>AMPS over 415V</b>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="">
+                                    12ft - Store
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A*
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA17" type="text" value="3" />
+                                </td>
+                                <td id="KVA17AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA17AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty17" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    21ft - Store
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A*
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA18" type="text" value="3.5" />
+                                </td>
+                                <td id="KVA18AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA18AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty18" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    32ft - Store
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA19" type="text" value="4" />
+                                </td>
+                                <td id="KVA19AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA19AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty19" type="text" value="0" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Toilets</h3>
+                    <table id="toilettable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+                        <thead>
+                            <tr>
+                                <th class="style2">
+                                    <b>Type</b>
+                                </th>
+                                <th data-priority="1" class="style3 hiddenCol">
+                                    <b>Plug-in or Hardwired</b>
+                                </th>
+                                <th data-priority="2" class="style4 hiddenCol">
+                                    <b>kVA</b>
+                                </th>
+                                <th data-priority="3" class="hiddenCol">
+                                    <b>AMPS at 240V</b>
+                                </th>
+                                <th data-priority="4" class="hiddenCol">
+                                    <b>AMPS over 415V</b>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="">
+                                    Toilets - 2+1
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA20" type="text" value="4" />
+                                </td>
+                                <td id="KVA20AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA20AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty20" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    Toilets - 3+1
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA21" type="text" value="5" />
+                                </td>
+                                <td id="KVA21AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA21AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty21" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    Toilets - 6+1
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA22" type="text" value="6" />
+                                </td>
+                                <td id="KVA22AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA22AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty22" type="text" value="0" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Miscellaneous</h3>
+                    <table id="misctable" data-role="table" data-mode="columntoggle" class="ui-responsive">
+                        <thead>
+                            <tr>
+                                <th class="style2">
+                                    <b>Type</b>
+                                </th>
+                                <th data-priority="1" class="style3 hiddenCol">
+                                    <b>Plug-in or Hardwired</b>
+                                </th>
+                                <th data-priority="2" class="style4 hiddenCol">
+                                    <b>kVA</b>
+                                </th>
+                                <th data-priority="3" class="hiddenCol">
+                                    <b>AMPS at 240V</b>
+                                </th>
+                                <th data-priority="4" class="hiddenCol">
+                                    <b>AMPS over 415V</b>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="">
+                                    Security - 12ft office
+                                </td>
+                                <td class="hiddenCol">
+                                    Blue 240V, 32A*
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA23" type="text" value="3.5" />
+                                </td>
+                                <td id="KVA23AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA23AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty23" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    All Accommodation Units without plug in supply
+                                </td>
+                                <td class="hiddenCol">
+                                    240V, 63A Isolator only
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA24" type="text" value="10" />
+                                </td>
+                                <td id="KVA24AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA24AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty24" type="text" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    6 Bay Shower Unit
+                                </td>
+                                <td class="hiddenCol">
+                                    2 x 32A Red 415V
+                                </td>
+                                <td class="hiddenCol">
+                                    <input class="kva" id="TxtKVA25" type="text" value="40" />
+                                </td>
+                                <td id="KVA25AMP240" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td id="KVA25AMP415" class="hiddenCol">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <input class="qty" id="TxtQty25" type="text" value="0" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+                
+                
+
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <div data-role="footer" style="text-align:center;">
+
+                <p><a href="">Bootstrap</a>  |  <a href="">Desktop - Stand CSS</a>  |  <a href="">jQuery Mobile</a></p>
+                <h3>Copyright 2018 John Warde</h3>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+function calcProjection() {
+
+//Declare & populate the array and variables
+var projectArray = [];
+var text = "";
+var capital = document.getElementById("CapitalInput").value;
+var INT = document.getElementById("FinancialProduct").value;
+
+//Populate Array with Calculated Annual Year Projections
+var i;
+for (i = 0; i < 26; i++) {
+	if (i < 1) {
+	projectArray[0] = Number(capital);
+	} else {
+	projectArray[i] = (Number(projectArray[i-1]) + (Number(projectArray[i-1]) * (Number(INT)/100)));
+	}
+}
+
+//Write Array of Calculated Annual Year Projections to the Projections Collapsible on page
+var text = "";
+var j;
+for (j = 0; j < 26; j++) {
+    text += "Year " + j + ": " + "£" + Number(projectArray[j]).toFixed(2) + "<br>";
+}
+
+//Write Summary to Page above Calculate Button
+document.getElementById("Projection").innerHTML = text;
+document.getElementById("OverviewResults").innerHTML = "<strong>Capital: </strong>£" + capital + "; " + "<strong>Interest Rate: </strong>" + INT + "%; " + "<strong>Projected Interest Return: </strong> £" + ((Number(projectArray[25]).toFixed(2)) - capital);
+
+}
+
+
+    </script>
+
+
+</body>
+</html>

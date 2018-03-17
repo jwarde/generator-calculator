@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+
+
+    <title></title>
+    <script src="../Scripts/jquery.js" type="text/javascript"></script>
+    <script src="../Functions/Functions.js" type="text/javascript"></script>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+
+        $("#kWButton").click(function () {
+            console.log("Clicked");
+            // action goes here!!
+            var kVA = +$("#kVAText").val();
+            console.log("kVA = " + kVA);
+            var kW = kWConvFunc(kVA);
+            console.log("kWConvFunc = " + kW);
+            $("#kWResult").text(kW);
+
+        });
+
+        $("#kVAButton").click(function () {
+            // action goes here!!
+            console.log("Clicked");
+            // action goes here!!
+            var kW = +$("#kWText").val();
+            console.log("kW = " + kW);
+            var kVA = kVAConvFunc(kW);
+            console.log("kVAConvFunc = " + kVA);
+            $("#kVAResult").text(kVA);
+
+        });
+
+        $("#3PHVoltButton").click(function () {
+            // action goes here!!
+            console.log("Clicked");
+            // action goes here!!
+            var _1PHVolt = +$("#_1PHVoltText").val();
+            console.log("_1PHVolt = " + _1PHVolt);
+            var threePHVoltFunc = threePHVoltFunc(_1PHVolt);
+            console.log("_3PHVoltFunc = " + threePHVoltFunc);
+            $("#3PHVoltResult").text(threePHVoltFunc);
+
+
+        });
+
+        $("#1PHPowerButton").click(function () {
+            // action goes here!!
+
+
+        });
+
+        $("#3PHPowerButton").click(function () {
+            // action goes here!!
+
+
+        });
+
+        $("#kWButton").click(function () {
+            // action goes here!!
+
+
+        });
+
+        $("#kWButton").click(function () {
+            // action goes here!!
+
+
+        });
+
+
+    });
+        
+    </script>
+    <style type="text/css">
+        .style1
+        {
+            width: 64%;
+        }
+        .style2
+        {
+            width: 183px;
+        }
+        .style3
+        {
+            width: 219px;
+        }
+        .style4
+        {
+            width: 64%;
+        }
+        .style6
+        {
+            width: 218px;
+        }
+        .style7
+        {
+            width: 64%;
+        }
+        .style8
+        {
+            width: 185px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="Header">
+
+</div><!-- Header Div -->
+
+<div id="Container">
+
+
+        <div id="FirstDiv">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius condimentum dui rhoncus feugiat. Nulla id nisi tellus. Suspendisse rutrum dui et lectus facilisis maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pharetra, odio id ornare cursus, nulla leo tristique leo, eu ornare quam elit gravida ex. Pellentesque ullamcorper nunc sit amet pellentesque convallis. Curabitur quam elit, pretium eget tincidunt vitae, pharetra ac purus. Proin leo nibh, eleifend non sollicitudin sed, luctus quis elit. Nullam sit amet tortor volutpat, cursus tellus nec, sodales leo. Duis id magna suscipit, egestas quam sit amet, tristique nibh</p>
+
+                <table class="style1">
+        <tr>
+            <td class="style3">
+                kWConvFunc</td>
+            <td class="style2">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+
+        </tr>
+        <tr>
+            <td class="style3">
+                kVA</td>
+            <td class="style2">
+                <input id="kVAText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+
+        </tr>
+        <tr>
+            <td class="style3">
+                kW</td>
+            <td class="style2">
+                <span id="kWResult"></span></td>
+            <td>
+                &nbsp;</td>
+
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="kWButton" type="button" value="Calculate kW" /></td>
+            <td class="style2">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+
+        </tr>
+    </table>
+        </div>
+
+        <div id="SecondDiv">
+            <p>Etiam vel semper turpis. Curabitur id eleifend tortor, eget auctor leo. Aliquam sollicitudin velit sed venenatis congue. Sed commodo tortor mauris, in euismod ligula consequat vitae. Etiam id rutrum diam. Vestibulum condimentum ante at quam efficitur, a tincidunt ligula lacinia. Aenean quam mi, tempor ac enim quis, commodo hendrerit sem. Suspendisse potenti. Cras scelerisque, ligula a ultrices rutrum, justo elit finibus enim, vehicula egestas nisl nisi eu nunc. Praesent laoreet urna ut lorem eleifend pretium. Praesent posuere elementum tempor. Nulla in neque vestibulum, imperdiet lorem sed, pharetra odio. Curabitur sit amet dignissim ex. Vivamus vel elit quis eros bibendum condimentum eget et sapien.</p>
+        
+                    <table class="style4">
+        <tr>
+            <td class="style6">
+                kVAConvFunc</td>
+            <td class="style2">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style6">
+                kW</td>
+            <td class="style2">
+                <input id="kWText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style6">
+                kVA</td>
+            <td class="style2">
+                <span id="kVAResult"></span></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style6">
+                <input id="kVAButton" type="button" value="Calculate kVA" /></td>
+            <td class="style2">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+        </div>
+
+        <div id="ThirdDiv">
+            <p>Phasellus semper scelerisque porttitor. Quisque semper volutpat libero ut cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat ultricies lectus ac pharetra. Fusce porta posuere lectus consequat tincidunt. Cras iaculis at lacus eu viverra. Morbi vitae urna rutrum, venenatis arcu vitae, malesuada ante. Maecenas lorem arcu, feugiat eget arcu nec, ullamcorper blandit sem. Suspendisse ornare mauris lectus, vitae ullamcorper nulla tincidunt eget. Aenean pellentesque a felis at eleifend. Donec at facilisis nisi, ac dictum turpis. Aliquam erat volutpat. Donec eros massa, sollicitudin sit amet velit vitae, consequat finibus libero. Integer placerat luctus feugiat. Integer non dui ut quam luctus faucibus.</p>
+        
+            <table class="style7">
+        <tr>
+            <td class="style3">
+                _3PHVoltFunc</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                1PHVolt</td>
+            <td class="style8">
+                <input id="_1PHVoltText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                3PHVolt</td>
+            <td class="style8">
+                &nbsp;</span></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="3PHVoltButton" type="button" value="Calculate 3PH" /></td>
+            <td class="style8">
+                <span id="3PHVoltResult"></span></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+
+        </div>
+
+        <div id="FourthDiv">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius condimentum dui rhoncus feugiat. Nulla id nisi tellus. Suspendisse rutrum dui et lectus facilisis maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pharetra, odio id ornare cursus, nulla leo tristique leo, eu ornare quam elit gravida ex. Pellentesque ullamcorper nunc sit amet pellentesque convallis. Curabitur quam elit, pretium eget tincidunt vitae, pharetra ac purus. Proin leo nibh, eleifend non sollicitudin sed, luctus quis elit. Nullam sit amet tortor volutpat, cursus tellus nec, sodales leo. Duis id magna suscipit, egestas quam sit amet, tristique nibh</p>
+        
+            <table class="style7">
+        <tr>
+            <td class="style3">
+                1PHPowerFunc</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                3PHVolt</td>
+            <td class="style8">
+                <input id="3PHVoltText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                1PHVolt</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="1PHPowerButton" type="button" value="Calculate 1PH" /></td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+        </div>
+
+        <div id="FifthDiv">
+            <p>Etiam vel semper turpis. Curabitur id eleifend tortor, eget auctor leo. Aliquam sollicitudin velit sed venenatis congue. Sed commodo tortor mauris, in euismod ligula consequat vitae. Etiam id rutrum diam. Vestibulum condimentum ante at quam efficitur, a tincidunt ligula lacinia. Aenean quam mi, tempor ac enim quis, commodo hendrerit sem. Suspendisse potenti. Cras scelerisque, ligula a ultrices rutrum, justo elit finibus enim, vehicula egestas nisl nisi eu nunc. Praesent laoreet urna ut lorem eleifend pretium. Praesent posuere elementum tempor. Nulla in neque vestibulum, imperdiet lorem sed, pharetra odio. Curabitur sit amet dignissim ex. Vivamus vel elit quis eros bibendum condimentum eget et sapien.</p>
+        
+            <table class="style7">
+        <tr>
+            <td class="style3">
+                3PHPowerFunc</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                1PHVolt</td>
+            <td class="style8">
+                <input id="Text1" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                3PHVolt</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="3PHPowerButton" type="button" value="Calculate 3PH" /></td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+        </div>
+
+        <div id="SixthDiv">
+            <p>Phasellus semper scelerisque porttitor. Quisque semper volutpat libero ut cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat ultricies lectus ac pharetra. Fusce porta posuere lectus consequat tincidunt. Cras iaculis at lacus eu viverra. Morbi vitae urna rutrum, venenatis arcu vitae, malesuada ante. Maecenas lorem arcu, feugiat eget arcu nec, ullamcorper blandit sem. Suspendisse ornare mauris lectus, vitae ullamcorper nulla tincidunt eget. Aenean pellentesque a felis at eleifend. Donec at facilisis nisi, ac dictum turpis. Aliquam erat volutpat. Donec eros massa, sollicitudin sit amet velit vitae, consequat finibus libero. Integer placerat luctus feugiat. Integer non dui ut quam luctus faucibus.</p>
+        
+            <table class="style7">
+        <tr>
+            <td class="style3">
+                kVAFunc</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                Volts</td>
+            <td class="style8">
+                <input id="VoltsText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                Current</td>
+            <td class="style8">
+                <input id="CurrentText" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                kVA</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="kVAButton1" type="button" value="Calculate kVA" /></td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+        </div>
+
+        <div id="SeventhDiv">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius condimentum dui rhoncus feugiat. Nulla id nisi tellus. Suspendisse rutrum dui et lectus facilisis maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pharetra, odio id ornare cursus, nulla leo tristique leo, eu ornare quam elit gravida ex. Pellentesque ullamcorper nunc sit amet pellentesque convallis. Curabitur quam elit, pretium eget tincidunt vitae, pharetra ac purus. Proin leo nibh, eleifend non sollicitudin sed, luctus quis elit. Nullam sit amet tortor volutpat, cursus tellus nec, sodales leo. Duis id magna suscipit, egestas quam sit amet, tristique nibh</p>
+        
+            <table class="style7">
+        <tr>
+            <td class="style3">
+                VoltFunc</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                kVA</td>
+            <td class="style8">
+                <input id="kVAText2" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                Current</td>
+            <td class="style8">
+                <input id="CurrentText2" type="text" /></td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                Volt</td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style3">
+                <input id="VoltButton" type="button" value="Calculate Volt" /></td>
+            <td class="style8">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+        </div>
+
+        <div id="EigthDiv">
+            <p>Etiam vel semper turpis. Curabitur id eleifend tortor, eget auctor leo. Aliquam sollicitudin velit sed venenatis congue. Sed commodo tortor mauris, in euismod ligula consequat vitae. Etiam id rutrum diam. Vestibulum condimentum ante at quam efficitur, a tincidunt ligula lacinia. Aenean quam mi, tempor ac enim quis, commodo hendrerit sem. Suspendisse potenti. Cras scelerisque, ligula a ultrices rutrum, justo elit finibus enim, vehicula egestas nisl nisi eu nunc. Praesent laoreet urna ut lorem eleifend pretium. Praesent posuere elementum tempor. Nulla in neque vestibulum, imperdiet lorem sed, pharetra odio. Curabitur sit amet dignissim ex. Vivamus vel elit quis eros bibendum condimentum eget et sapien.</p>
+        </div>
+
+
+
+        <div id="Footer">
+            <p><a href="">Home</a>  |  <a href="">About</a>  |  <a href="">Categories</a>  |  <a href="">Index</a></p>
+        </div>
+
+
+</div><!-- Container Div -->
+
+</body>
+</html>
